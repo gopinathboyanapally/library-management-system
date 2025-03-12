@@ -1,0 +1,51 @@
+{% extends "webapp/header.html" %}
+<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Libre+Franklin" rel="stylesheet">
+
+{% block content %}
+	
+	{% if request.user.is_authenticated %}
+		<h2 style = 'font-family:monospace; margin:auto; display:table; margin-top:25px;'> Please select any one of the below books <b>{{ request.user.first_name }}</b>.</h2>
+
+		<div class="book_container" style = 'margin:auto; display:table; margin-top:5%;'>
+			<form action = '/issue/' method = 'post' >{% csrf_token %}
+				<table>
+					<tr>
+					    <th> <u>BOOK ISBN</u> </th>
+						<th> <u> BOOK NAME </u> </th>
+						<th> <u> AUTHOR </u> </th>
+						<th> <u> SELECT </u> </th>
+					</tr>
+					{% for bookvar in book_data %}
+						<tr>
+					        <td align="center;"><p id="nav_font">{{ bookvar.Dj_Book_isbn }}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p></td>
+					        <td align="center;"><p id="nav_font"> <b>{{ bookvar.Dj_Book_name }}</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
+					        <td align="center;"><p id="nav_font">{{ bookvar.Dj_Author }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><td>
+					        <input type ='radio' name = 'display_type' value='{{bookvar.Dj_Book_isbn}}'/>
+					    </tr>
+				    {% endfor %}
+				</table>
+				<br><br>
+				<button type="submit_book" class="btn btn-primary" value="submit_book" style='width:593px; position:relative;'>Submit</button>
+			</form>
+   		</div>
+   	{% endif %}
+
+   	<style>
+   		th{
+   			font-weight: 700;
+   			font-size: x-large;
+   			/*font-family: calibri;*/
+   			font-family: 'Questrial', sans-serif;
+   			text-align: center;
+   			color: #7E3517;
+   		}
+
+   		td{
+   			text-align: center;
+   			font-family: 'Libre Franklin', sans-serif;
+   			font-size: large;
+   		}
+   	</style>
+
+{% endblock %}

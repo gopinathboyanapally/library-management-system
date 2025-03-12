@@ -1,0 +1,60 @@
+
+<style type="text/css">
+	h2{
+		margin-top: 0px !important;
+		
+	}
+	.text_head{
+		position: relative;
+		/*right: 123px;*/
+		padding-top: 24px;
+		padding-left: 21%;
+		color: #faebd7;
+		margin: auto;
+	}
+
+	/* dashboard page */
+		.box1{
+			align-content:  center;
+			width: 200px;
+ 			height:200px;	
+			margin-top:50px !important;
+			margin-left:211px !important;
+			position:fixed; 
+		}
+		.box2{
+			align-content:  center;
+			width: 200px;
+ 			height:200px;	
+			margin-top:50px !important;
+			margin-left:483px !important;
+			position:fixed; 
+		}
+		.p1{
+			text-align: center;  	
+			margin-top:256px;
+			margin-left:172px;
+			position:fixed;
+			font-size:large; 
+		}
+		.box1:hover { 
+			-moz-box-shadow: 0 0 120px #ccc;
+			-webkit-box-shadow: 0 0 120px #ccc;
+			/* box-shadow: 0 0 120px black; */
+			background-color:#d3d3d3;
+		}
+		.box2:hover { 
+			-moz-box-shadow: 0 0 120px #ccc;
+			-webkit-box-shadow: 0 0 120px #ccc;
+			/* box-shadow: 0 0 120px black; */
+			background-color:#d3d3d3;
+		}
+		.box3:hover { 
+			-moz-box-shadow: 0 0 120px #ccc;
+			-webkit-box-shadow: 0 0 120px #ccc;
+			/* box-shadow: 0 0 120px black; */
+			background-color:#d3d3d3;
+		}
+
+</style>
+

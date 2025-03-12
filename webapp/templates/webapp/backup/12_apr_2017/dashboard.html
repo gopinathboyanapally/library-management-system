@@ -1,0 +1,37 @@
+{% extends "webapp/header.html" %}
+
+{% block content %}
+
+{% load staticfiles %}
+<!--<link rel="stylesheet" href="{%static 'css/main.css'%}" type="text/css">-->
+<body>
+    <div class="col-sm-1" style="padding-top: 50px;height: 100%; width: 128px;">
+    	<ul class="nav nav-pills nav-stacked">
+  			<li class="active"><a href='/home/'>Home</a></li>
+  			<li><a href="#">Edit Profile</a></li>
+  			<li><a href='/logout/'>Logout</a></li>
+		</ul>
+    </div>
+    <div class="col-sm-11">
+      <!--Jinja Templating-->
+      {% if request.user.is_authenticated %}
+          <h1 style="text-align:center; font-family:monospace;" class='user_name'>Welcome, {{ request.user.first_name }} {{ request.user.last_name }}. Your authentication id is {{request.user.id}}</h1>
+
+			<div class="col-sm-4">
+        		<div class="box1" style="font-family:verdana; color:black; text-align:center; " > <a href="/search/" style="color:#000000;"><img src="{%static 'Images/searchabook.png'%}"/> 
+    			</a></img>
+    			</div>
+		    </div>
+		    <div class="col-sm-4">
+				<div class="box2" style="font-family:verdana; color:black; text-align:center; " > <a href="/issuedbooks/" style="color:#000000;"><img src="{%static 'Images/issuedbooks.png'%}"/> 
+  			   </a></img>
+				</div>
+			</div>
+
+      {% endif %}
+      <!--Jinja Templating-->
+    </div>
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "webapp/header.html" %}
+
+{% block content %}
+
+<h1 style="text-align: center; font-family: monospace; margin-top: 100px;"> Thank you for signing up. Press below to Log in </h1>
+<div class = 'login_button_container' style = 'margin:auto; display:table;'>
+	<button type="login_redirect" onclick="location.href = '/login/';" class="btn btn-primary" value="redirect" style = 'width:300px; margin-top: 54px;'>Login</button>
+</div>
+
+{% endblock %}

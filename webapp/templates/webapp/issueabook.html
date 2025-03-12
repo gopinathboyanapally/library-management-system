@@ -1,0 +1,56 @@
+{% extends "webapp/header.html" %}
+
+{% block content %}
+
+	{% if request.user.is_authenticated %}
+		<h2 style = 'font-family:monospace; margin:auto; display:table; margin-top:25px;'> Please select any one of the below books to return <b>{{ request.user.first_name }}</b>.</h2>
+
+		<div class="book_container" style = 'margin:auto; display:table; margin-top:5%;'>
+			<form action = '/return/' method = 'post' >{% csrf_token %}
+				<table>
+					<tr>
+					    <th> <u>BOOK ISBN</u>&nbsp;&nbsp;&nbsp; </th>
+						<th> <u> BOOK </u> &nbsp;&nbsp;&nbsp;</th>
+						<th> <u> ISSUED ON </u> &nbsp;&nbsp;&nbsp;</th>
+						<th> <u> DUE DATE </u> </th>
+					</tr>
+					{% for issue_a_book in issue_book_data %}
+
+							<tr class ='issued_books_{{issue_a_book.Dj_user_id}}'>
+								<td align="center;"><p id="nav_font">{{ issue_a_book.Dj_Book_isbn_id }}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p></td>
+								<td align="center;"><p id="nav_font">{{ issue_a_book.Dj_Book }}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p></td>
+								<td align="center;"><p id="nav_font">{{ issue_a_book.Dj_issued_on }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></td>
+								<td align="center;"><p id="nav_font">{{ issue_a_book.Dj_due_date }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><td>
+								<input type ='radio' name = 'display_type_issue' value='{{issue_a_book.Dj_Book_isbn_id}}'/>
+							</tr>
+				    {% endfor %}
+				</table>
+				<br><br>
+				<button type="return_book" class="btn btn-primary" value="return_book" style='width:433px; position:relative;'>RETURN</button>
+			</form>
+   		</div>
+	{% endif %}
+	<script>
+	{% for issue_a_book in issue_book_data %}
+		$(document).ready(function(){
+			var js_uid = {{request.user.id}};
+			var js_issued_uid = {{ issue_a_book.Dj_user_id }};
+			if(js_uid != js_issued_uid)
+			{
+				$('.issued_books_'+js_issued_uid).hide();
+			}
+		});
+	{%endfor %}
+	</script>
+	
+	<style>
+		th{
+			text-align : center;
+		}
+		
+		td{
+			text-align : center;
+		}
+	</style>
+
+{% endblock %}

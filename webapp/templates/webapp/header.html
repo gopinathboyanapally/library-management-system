@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		{% load staticfiles %}
+		<link rel="stylesheet" href="{%static 'css/main.css'%}" type="text/css">
+
+		<link href="https://fonts.googleapis.com/css?family=Cinzel|Dancing+Script" rel="stylesheet">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<div class = "page_strip" style = "background-color:#7E3517; height:90px; width:100%">
+			<div class="col-sm-2">
+				<a href='/home/'>
+					<img src="{% static 'Images/b_icon.png' %}" alt="b_icon" height="87px" width="87px">
+				</a>
+			</div>
+			<div class="col-sm-10" style="height:100%;">
+				<h1 class="text_head">LIBRARY MANAGEMENT</h1>
+			</div>
+		</div>
+
+		{% block content %}
+
+		{% endblock %}
+	</body>
+</html>
+<style type="text/css">
+	.text_head{
+		font-size: 900;
+		font-family: 'Cinzel', serif;
+	}
+
+</style>
+

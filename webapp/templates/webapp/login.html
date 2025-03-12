@@ -1,0 +1,30 @@
+{% extends "webapp/header.html" %}
+
+	{% block content %}
+
+		{% if forms.errors %}
+			<p class= 'error'> Please enter a valid username and password </p>
+		{% endif%}
+
+		<div class = "container_fluid" style = "background-color:#f5fffa; height:79%; width:100%">
+			<div class="col-sm-6" style="height:100%;">
+				{% load staticfiles %}
+				<img src="{% static 'Images/login_p.jpg'%}" alt="books" height="100%" width="100%">
+			</div>
+			<div class="col-sm-6" style="height:100%; padding:10%;">
+				<div class = "form_container">
+					<form action = "/auth/" method = "post">{% csrf_token %}
+						<b >Username:</b><br><br>
+		  				<input type="text" name="username" id = "username" value="">
+		  				<br><br>
+		  				<b>Password:</b><br><br>
+		  				<input type="password" name="password" id= "password" value="">
+		 				<br><br>
+		  				<input type="submit" class="btn btn-success" id = 'login_button' value='Login'/>
+		  				<a type="sign_up" class="btn btn-primary"  href='/sign_up/'>Sign Up</a>
+					</form>
+				</div>
+			</div>	
+		</div>
+
+	{% endblock %}
